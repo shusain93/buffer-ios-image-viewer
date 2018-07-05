@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1702C69A1F86BBFC00104D0B /* BFRImageViewerConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1702C6991F86BBFC00104D0B /* BFRImageViewerConstants.m */; };
 		1702C69C1F86C3A400104D0B /* lowResImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1702C69B1F86C32100104D0B /* lowResImage.png */; };
-		171F4AD01E96BE0500F4AF01 /* BFRBackLoadedImageSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 171F4ACF1E96BE0500F4AF01 /* BFRBackLoadedImageSource.m */; };
 		171F4AD31E96C31400F4AF01 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171F4AD21E96C31400F4AF01 /* FourthViewController.m */; };
-		1797CB8E1E81BB4F00D9F729 /* BFRImageTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1797CB8D1E81BB4F00D9F729 /* BFRImageTransitionAnimator.m */; };
 		1797CB911E81BBB200D9F729 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1797CB901E81BBB200D9F729 /* ThirdViewController.m */; };
 		17C1AAB61D9D6EBF00FF1B67 /* BFRImageViewerLocalizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17C1AAB51D9D6EBF00FF1B67 /* BFRImageViewerLocalizations.bundle */; };
+		223D660920ED3F68007F94E0 /* EEPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D660220ED3F67007F94E0 /* EEPhoto.m */; };
+		223D660A20ED3F68007F94E0 /* EEPhotoDescriptorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D660320ED3F68007F94E0 /* EEPhotoDescriptorView.m */; };
+		223D660B20ED3F68007F94E0 /* EEPhotoDescriptorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 223D660620ED3F68007F94E0 /* EEPhotoDescriptorView.xib */; };
+		223D660C20ED3F68007F94E0 /* EEGIFVideoContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D660820ED3F68007F94E0 /* EEGIFVideoContainerView.m */; };
+		223D661820ED3F73007F94E0 /* BFRImageViewerConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D660D20ED3F71007F94E0 /* BFRImageViewerConstants.m */; };
+		223D661920ED3F73007F94E0 /* BFRImageTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D660E20ED3F71007F94E0 /* BFRImageTransitionAnimator.m */; };
+		223D661A20ED3F73007F94E0 /* BFRImageContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D661120ED3F72007F94E0 /* BFRImageContainerViewController.m */; };
+		223D661B20ED3F73007F94E0 /* BFRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D661220ED3F72007F94E0 /* BFRImageViewController.m */; };
+		223D661C20ED3F73007F94E0 /* BFRBackLoadedImageSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D661320ED3F72007F94E0 /* BFRBackLoadedImageSource.m */; };
 		3D65F036BBCC181E7FD291F7 /* libPods-BFRImageViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76763DB871F085556628E1C6 /* libPods-BFRImageViewer.a */; };
 		578DFD5B1CB6F17B00BFBD00 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 578DFD581CB6F17B00BFBD00 /* cross.png */; };
 		578DFD5C1CB6F17B00BFBD00 /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 578DFD591CB6F17B00BFBD00 /* cross@2x.png */; };
@@ -23,26 +29,35 @@
 		944B4DB61BFFC0C000B9BF87 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944B4DB51BFFC0C000B9BF87 /* FirstViewController.m */; };
 		944B4DB91BFFC0C000B9BF87 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944B4DB81BFFC0C000B9BF87 /* SecondViewController.m */; };
 		944B4DC11BFFC0C000B9BF87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944B4DBF1BFFC0C000B9BF87 /* LaunchScreen.storyboard */; };
-		944B4DE91BFFC0E300B9BF87 /* BFRImageContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944B4DE61BFFC0E300B9BF87 /* BFRImageContainerViewController.m */; };
-		944B4DEA1BFFC0E300B9BF87 /* BFRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944B4DE81BFFC0E300B9BF87 /* BFRImageViewController.m */; };
 		95D4797D1F97C348001E54D4 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D4797C1F97C348001E54D4 /* FifthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1264A436520DEA8753316972 /* Pods-BFRImageViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFRImageViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFRImageViewer/Pods-BFRImageViewer.release.xcconfig"; sourceTree = "<group>"; };
-		1702C6981F86BBFC00104D0B /* BFRImageViewerConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFRImageViewerConstants.h; sourceTree = "<group>"; };
-		1702C6991F86BBFC00104D0B /* BFRImageViewerConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFRImageViewerConstants.m; sourceTree = "<group>"; };
 		1702C69B1F86C32100104D0B /* lowResImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lowResImage.png; sourceTree = "<group>"; };
-		171F4ACE1E96BE0500F4AF01 /* BFRBackLoadedImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRBackLoadedImageSource.h; sourceTree = "<group>"; };
-		171F4ACF1E96BE0500F4AF01 /* BFRBackLoadedImageSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRBackLoadedImageSource.m; sourceTree = "<group>"; };
 		171F4AD11E96C31400F4AF01 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		171F4AD21E96C31400F4AF01 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
-		1797CB8C1E81BB4F00D9F729 /* BFRImageTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageTransitionAnimator.h; sourceTree = "<group>"; };
-		1797CB8D1E81BB4F00D9F729 /* BFRImageTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageTransitionAnimator.m; sourceTree = "<group>"; };
 		1797CB8F1E81BBB200D9F729 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		1797CB901E81BBB200D9F729 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		17C1AAB51D9D6EBF00FF1B67 /* BFRImageViewerLocalizations.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BFRImageViewerLocalizations.bundle; sourceTree = "<group>"; };
-		17C1AAB91D9D702E00FF1B67 /* BFRImageViewerLocalizations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFRImageViewerLocalizations.h; sourceTree = "<group>"; };
+		223D660220ED3F67007F94E0 /* EEPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPhoto.m; sourceTree = "<group>"; };
+		223D660320ED3F68007F94E0 /* EEPhotoDescriptorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEPhotoDescriptorView.m; sourceTree = "<group>"; };
+		223D660420ED3F68007F94E0 /* EEPhotoDescriptorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPhotoDescriptorView.h; sourceTree = "<group>"; };
+		223D660520ED3F68007F94E0 /* EEPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEPhoto.h; sourceTree = "<group>"; };
+		223D660620ED3F68007F94E0 /* EEPhotoDescriptorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEPhotoDescriptorView.xib; sourceTree = "<group>"; };
+		223D660720ED3F68007F94E0 /* EEGIFVideoContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEGIFVideoContainerView.h; sourceTree = "<group>"; };
+		223D660820ED3F68007F94E0 /* EEGIFVideoContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEGIFVideoContainerView.m; sourceTree = "<group>"; };
+		223D660D20ED3F71007F94E0 /* BFRImageViewerConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageViewerConstants.m; sourceTree = "<group>"; };
+		223D660E20ED3F71007F94E0 /* BFRImageTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageTransitionAnimator.m; sourceTree = "<group>"; };
+		223D660F20ED3F71007F94E0 /* BFRBackLoadedImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRBackLoadedImageSource.h; sourceTree = "<group>"; };
+		223D661020ED3F71007F94E0 /* BFRImageContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageContainerViewController.h; sourceTree = "<group>"; };
+		223D661120ED3F72007F94E0 /* BFRImageContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageContainerViewController.m; sourceTree = "<group>"; };
+		223D661220ED3F72007F94E0 /* BFRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageViewController.m; sourceTree = "<group>"; };
+		223D661320ED3F72007F94E0 /* BFRBackLoadedImageSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRBackLoadedImageSource.m; sourceTree = "<group>"; };
+		223D661420ED3F72007F94E0 /* BFRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageViewController.h; sourceTree = "<group>"; };
+		223D661520ED3F72007F94E0 /* BFRImageViewerLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageViewerLocalizations.h; sourceTree = "<group>"; };
+		223D661620ED3F73007F94E0 /* BFRImageViewerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageViewerConstants.h; sourceTree = "<group>"; };
+		223D661720ED3F73007F94E0 /* BFRImageTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageTransitionAnimator.h; sourceTree = "<group>"; };
 		3C46F30D2C78F64E6BC23C87 /* Pods-BFRImageViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFRImageViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BFRImageViewer/Pods-BFRImageViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		578DFD581CB6F17B00BFBD00 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		578DFD591CB6F17B00BFBD00 /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
@@ -58,10 +73,6 @@
 		944B4DB81BFFC0C000B9BF87 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		944B4DC01BFFC0C000B9BF87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		944B4DC21BFFC0C000B9BF87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		944B4DE51BFFC0E300B9BF87 /* BFRImageContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageContainerViewController.h; sourceTree = "<group>"; };
-		944B4DE61BFFC0E300B9BF87 /* BFRImageContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageContainerViewController.m; sourceTree = "<group>"; };
-		944B4DE71BFFC0E300B9BF87 /* BFRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFRImageViewController.h; sourceTree = "<group>"; };
-		944B4DE81BFFC0E300B9BF87 /* BFRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFRImageViewController.m; sourceTree = "<group>"; };
 		95D4797B1F97C348001E54D4 /* FifthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
 		95D4797C1F97C348001E54D4 /* FifthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,18 +161,25 @@
 		944B4DE41BFFC0E300B9BF87 /* BFRImageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				223D660F20ED3F71007F94E0 /* BFRBackLoadedImageSource.h */,
+				223D661320ED3F72007F94E0 /* BFRBackLoadedImageSource.m */,
+				223D661720ED3F73007F94E0 /* BFRImageTransitionAnimator.h */,
+				223D660E20ED3F71007F94E0 /* BFRImageTransitionAnimator.m */,
+				223D661420ED3F72007F94E0 /* BFRImageViewController.h */,
+				223D661220ED3F72007F94E0 /* BFRImageViewController.m */,
+				223D661620ED3F73007F94E0 /* BFRImageViewerConstants.h */,
+				223D660D20ED3F71007F94E0 /* BFRImageViewerConstants.m */,
+				223D661520ED3F72007F94E0 /* BFRImageViewerLocalizations.h */,
+				223D661020ED3F71007F94E0 /* BFRImageContainerViewController.h */,
+				223D661120ED3F72007F94E0 /* BFRImageContainerViewController.m */,
+				223D660720ED3F68007F94E0 /* EEGIFVideoContainerView.h */,
+				223D660820ED3F68007F94E0 /* EEGIFVideoContainerView.m */,
+				223D660520ED3F68007F94E0 /* EEPhoto.h */,
+				223D660220ED3F67007F94E0 /* EEPhoto.m */,
+				223D660420ED3F68007F94E0 /* EEPhotoDescriptorView.h */,
+				223D660320ED3F68007F94E0 /* EEPhotoDescriptorView.m */,
+				223D660620ED3F68007F94E0 /* EEPhotoDescriptorView.xib */,
 				578DFD551CB6E7F400BFBD00 /* Resources */,
-				944B4DE51BFFC0E300B9BF87 /* BFRImageContainerViewController.h */,
-				944B4DE61BFFC0E300B9BF87 /* BFRImageContainerViewController.m */,
-				944B4DE71BFFC0E300B9BF87 /* BFRImageViewController.h */,
-				944B4DE81BFFC0E300B9BF87 /* BFRImageViewController.m */,
-				17C1AAB91D9D702E00FF1B67 /* BFRImageViewerLocalizations.h */,
-				1797CB8C1E81BB4F00D9F729 /* BFRImageTransitionAnimator.h */,
-				1797CB8D1E81BB4F00D9F729 /* BFRImageTransitionAnimator.m */,
-				171F4ACE1E96BE0500F4AF01 /* BFRBackLoadedImageSource.h */,
-				171F4ACF1E96BE0500F4AF01 /* BFRBackLoadedImageSource.m */,
-				1702C6981F86BBFC00104D0B /* BFRImageViewerConstants.h */,
-				1702C6991F86BBFC00104D0B /* BFRImageViewerConstants.m */,
 			);
 			name = BFRImageViewController;
 			path = ../../BFRImageViewController;
@@ -210,7 +228,7 @@
 				TargetAttributes = {
 					944B4DAA1BFFC0C000B9BF87 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = UYDA63C4EC;
+						DevelopmentTeam = XBKLZPN8YT;
 					};
 				};
 			};
@@ -242,6 +260,7 @@
 				944B4DC11BFFC0C000B9BF87 /* LaunchScreen.storyboard in Resources */,
 				578DFD5D1CB6F17B00BFBD00 /* cross@3x.png in Resources */,
 				578DFD5B1CB6F17B00BFBD00 /* cross.png in Resources */,
+				223D660B20ED3F68007F94E0 /* EEPhotoDescriptorView.xib in Resources */,
 				17C1AAB61D9D6EBF00FF1B67 /* BFRImageViewerLocalizations.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,16 +320,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223D660920ED3F68007F94E0 /* EEPhoto.m in Sources */,
 				944B4DB91BFFC0C000B9BF87 /* SecondViewController.m in Sources */,
-				1797CB8E1E81BB4F00D9F729 /* BFRImageTransitionAnimator.m in Sources */,
+				223D661C20ED3F73007F94E0 /* BFRBackLoadedImageSource.m in Sources */,
+				223D661A20ED3F73007F94E0 /* BFRImageContainerViewController.m in Sources */,
 				1797CB911E81BBB200D9F729 /* ThirdViewController.m in Sources */,
+				223D660A20ED3F68007F94E0 /* EEPhotoDescriptorView.m in Sources */,
+				223D661B20ED3F73007F94E0 /* BFRImageViewController.m in Sources */,
 				95D4797D1F97C348001E54D4 /* FifthViewController.m in Sources */,
-				944B4DEA1BFFC0E300B9BF87 /* BFRImageViewController.m in Sources */,
 				944B4DB31BFFC0C000B9BF87 /* AppDelegate.m in Sources */,
-				171F4AD01E96BE0500F4AF01 /* BFRBackLoadedImageSource.m in Sources */,
+				223D661920ED3F73007F94E0 /* BFRImageTransitionAnimator.m in Sources */,
 				171F4AD31E96C31400F4AF01 /* FourthViewController.m in Sources */,
-				1702C69A1F86BBFC00104D0B /* BFRImageViewerConstants.m in Sources */,
-				944B4DE91BFFC0E300B9BF87 /* BFRImageContainerViewController.m in Sources */,
+				223D661820ED3F73007F94E0 /* BFRImageViewerConstants.m in Sources */,
+				223D660C20ED3F68007F94E0 /* EEGIFVideoContainerView.m in Sources */,
 				944B4DB61BFFC0C000B9BF87 /* FirstViewController.m in Sources */,
 				944B4DB01BFFC0C000B9BF87 /* main.m in Sources */,
 			);
@@ -423,7 +445,7 @@
 			baseConfigurationReference = 3C46F30D2C78F64E6BC23C87 /* Pods-BFRImageViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UYDA63C4EC;
+				DEVELOPMENT_TEAM = XBKLZPN8YT;
 				INFOPLIST_FILE = BFRImageViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -437,7 +459,7 @@
 			baseConfigurationReference = 1264A436520DEA8753316972 /* Pods-BFRImageViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UYDA63C4EC;
+				DEVELOPMENT_TEAM = XBKLZPN8YT;
 				INFOPLIST_FILE = BFRImageViewer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

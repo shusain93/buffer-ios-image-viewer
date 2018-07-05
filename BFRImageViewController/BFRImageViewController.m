@@ -26,8 +26,6 @@
 /*! This will automatically hide the "Done" button after five seconds. */
 @property (strong, nonatomic, nullable) NSTimer *timerHideUI;
 
-/*! The button that sticks to the top left of the view that is responsible for dismissing this view controller. */
-@property (strong, nonatomic, nullable) UIButton *doneButton;
 
 /*! This will determine whether to change certain behaviors for 3D touch considerations based on its value. */
 @property (nonatomic, getter=isBeingUsedFor3DTouch) BOOL usedFor3DTouch;
@@ -53,7 +51,6 @@
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.enableDoneButton = YES;
         self.showDoneButtonOnLeft = YES;
-        self.disableAutoplayForLivePhoto = YES;
         self.parallaxView = [UIView new];
     }
     
@@ -70,7 +67,6 @@
         self.enableDoneButton = YES;
         self.showDoneButtonOnLeft = YES;
         self.usedFor3DTouch = YES;
-        self.disableAutoplayForLivePhoto = YES;
         self.parallaxView = [UIView new];
     }
     
@@ -100,7 +96,6 @@
         imgVC.useTransparentBackground = self.isUsingTransparentBackground;
         imgVC.disableSharingLongPress = self.shouldDisableSharingLongPress;
         imgVC.disableHorizontalDrag = (self.images.count > 1);
-        imgVC.disableAutoplayForLivePhoto = self.shouldDisableAutoplayForLivePhoto;
         [self.imageViewControllers addObject:imgVC];
     }
     

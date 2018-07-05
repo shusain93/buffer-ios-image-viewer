@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   					   "Jordan Morgan" => "jordan@bufferapp.com",
                        "Humber Aquino" => "humber@bufferapp.com"}
   	s.social_media_url = "https://twitter.com/bufferdevs"
-    s.source       = { :git => "https://github.com/bufferapp/buffer-ios-image-viewer.git", :tag => '1.2.1'  }
+    s.source       = { :git => "https://github.com/shusain93/buffer-ios-image-viewer.git"  }
     s.source_files = 'Classes', 'BFRImageViewController/**/*.{h,m}'
     s.resources    = ['BFRImageViewController/**/BFRImageViewerLocalizations.bundle','BFRImageViewController/**/*.{png}']
     s.exclude_files = 'BFRImageViewController/**/lowResImage.png'

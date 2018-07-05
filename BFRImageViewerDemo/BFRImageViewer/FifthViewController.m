@@ -140,7 +140,6 @@
         
         BFRImageViewController *viewController = [[BFRImageViewController alloc]
                                                   initWithImageSource:[livePhotosToShow copy]];
-        viewController.disableAutoplayForLivePhoto = shouldDisableAutoPlay;
         return viewController;
     } else {
         UIAlertController *controller = [UIAlertController

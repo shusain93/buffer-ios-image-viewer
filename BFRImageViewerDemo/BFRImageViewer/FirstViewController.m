@@ -8,7 +8,7 @@
 
 #import "FirstViewController.h"
 #import "BFRImageViewController.h"
-
+#import "EEPhoto.h"
 @interface FirstViewController () <UIViewControllerPreviewingDelegate>
 @property (strong, nonatomic) NSURL *imgURL;
 @end
@@ -35,7 +35,23 @@
 
 - (void)openImage {
     //Here, the image source could be an array containing/a mix of URL strings, NSURLs, PHAssets, or UIImages
-    BFRImageViewController *imageVC = [[BFRImageViewController alloc] initWithImageSource:@[self.imgURL]];    
+	EEPhoto * a = [[EEPhoto alloc]init];
+	[a setUrl:[NSURL URLWithString:@"https://i.imgur.com/XDWafFs.mp4"]];
+	[a setTitle:[[NSAttributedString alloc] initWithString:@"Title test!"]];
+	[a setDescription:[[NSAttributedString alloc] initWithString:@"desc test!"]];
+	
+	EEPhoto * c = [[EEPhoto alloc]init];
+	[c setUrl:[NSURL URLWithString:@"https://buffer-media-uploads.s3.amazonaws.com/5834f2c60a34eb600e2b4e13/7bc86def18c9fef467c78a2125882ad7_e26a0823b055bff93b85c2d7271bd5df4273604d_twitter.gif"]];
+	[c setTitle:nil];
+	[c setDescription:nil];
+	
+	EEPhoto * b = [[EEPhoto alloc]init];
+	[b setUrl:[NSURL URLWithString:@"https://i.imgur.com/JTQrmC4.jpg"]];
+	[b setTitle:[[NSAttributedString alloc] initWithString:@"LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE! LONG TITLE!"]];
+	[b setDescription:[[NSAttributedString alloc] initWithString:@"descc2222 test!"]];
+	
+    BFRImageViewController *imageVC = [[BFRImageViewController alloc] initWithImageSource:@[a,b,c]];
+	[imageVC setDisableSharingLongPress:YES];
     [self presentViewController:imageVC animated:YES completion:nil];
 }
 
@@ -47,7 +63,11 @@
 }
 
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-    return [[BFRImageViewController alloc] initWithImageSource:@[self.imgURL]];
+	EEPhoto * a = [[EEPhoto alloc]init];
+	[a setUrl:[NSURL URLWithString:@"https://i.imgur.com/XDWafFs.mp4"]];
+	[a setTitle:[[NSAttributedString alloc] initWithString:@"Title test!"]];
+	[a setDescription:[[NSAttributedString alloc] initWithString:@"Title test!"]];
+    return [[BFRImageViewController alloc] initWithImageSource:@[a]];
 }
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
