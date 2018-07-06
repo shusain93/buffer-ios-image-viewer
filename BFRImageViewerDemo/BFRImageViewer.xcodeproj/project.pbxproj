@@ -100,6 +100,7 @@
 		578DFD551CB6E7F400BFBD00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				223D660620ED3F68007F94E0 /* EEPhotoDescriptorView.xib */,
 				1702C69B1F86C32100104D0B /* lowResImage.png */,
 				578DFD581CB6F17B00BFBD00 /* cross.png */,
 				578DFD591CB6F17B00BFBD00 /* cross@2x.png */,
@@ -178,7 +179,6 @@
 				223D660220ED3F67007F94E0 /* EEPhoto.m */,
 				223D660420ED3F68007F94E0 /* EEPhotoDescriptorView.h */,
 				223D660320ED3F68007F94E0 /* EEPhotoDescriptorView.m */,
-				223D660620ED3F68007F94E0 /* EEPhotoDescriptorView.xib */,
 				578DFD551CB6E7F400BFBD00 /* Resources */,
 			);
 			name = BFRImageViewController;

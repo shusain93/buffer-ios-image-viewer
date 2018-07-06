@@ -10,7 +10,7 @@
 
 @interface BFRImageViewController : UIViewController
 
-- (instancetype _Nullable)init NS_UNAVAILABLE;
+- (instancetype _Nonnull)init NS_UNAVAILABLE;
 
 /*! Initializes an instance of @C BFRImageViewController from the image source provided. The array can contain a mix of @c NSURL, @c UIImage, @c PHAsset, @c BFRBackLoadedImageSource or @c NSStrings of URLS. This can be a mix of all these types, or just one. */
 - (instancetype _Nullable)initWithImageSource:(NSArray * _Nonnull)images;

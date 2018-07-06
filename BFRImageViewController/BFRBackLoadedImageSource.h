@@ -21,7 +21,7 @@ typedef void(^onHiResDownloadComplete)(UIImage * _Nullable,  NSError * _Nullable
 @property (copy) onHiResDownloadComplete _Nullable onCompletion;
 
 /*! Use initWithInitialImage:hiResURL instead. */
-- (instancetype _Nullable)init NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 /*! Returns an instance of this class that will show the @c UIImage provided first, and then replace it with the high fidelty version when it loads via the passed in @c NSURL. */
 - (instancetype _Nullable)initWithInitialImage:(UIImage * _Nonnull)image hiResURL:(NSURL * _Nonnull)url NS_DESIGNATED_INITIALIZER;
