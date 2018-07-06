@@ -11,6 +11,7 @@
 #import "BFRImageViewerLocalizations.h"
 #import "BFRImageTransitionAnimator.h"
 #import "BFRImageViewerConstants.h"
+#import <DACircularProgress/DACircularProgressView.h>
 
 @interface BFRImageViewController () <UIPageViewControllerDataSource, UIScrollViewDelegate>
 
@@ -21,7 +22,7 @@
 @property (strong, nonatomic, nonnull) NSMutableArray <BFRImageContainerViewController *> *imageViewControllers;
 
 /*! This can contain a mix of @c NSURL, @c UIImage, @c PHAsset, @c BFRBackLoadedImageSource or @c NSStrings of URLS. This can be a mix of all these types, or just one. */
-@property (strong, nonatomic, nonnull) NSArray *images;
+@property (strong, nonatomic, nonnull) NSMutableArray *images;
 
 /*! This will automatically hide the "Done" button after five seconds. */
 @property (strong, nonatomic, nullable) NSTimer *timerHideUI;
@@ -36,17 +37,18 @@
 /*! This creates the parallax scrolling effect by essentially clipping the scrolled images and moving with the touch point in scrollViewDidScroll. */
 @property (strong, nonatomic, nonnull) UIView *parallaxView;
 
+@property (strong, nonatomic,nullable) DACircularProgressView *progressView;
+
 @end
 
 @implementation BFRImageViewController
 
 #pragma mark - Initializers
 
-- (instancetype)initWithImageSource:(NSArray *)images {
+- (instancetype)initWithImageSource:(NSMutableArray *)images {
     self = [super init];
     
     if (self) {
-        NSAssert(images.count > 0, @"You must supply at least one image source to use this class.");
         self.images = images;
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.enableDoneButton = YES;
@@ -57,11 +59,10 @@
     return self;
 }
 
-- (instancetype)initForPeekWithImageSource:(NSArray *)images {
+- (instancetype)initForPeekWithImageSource:(NSMutableArray *)images {
     self = [super init];
     
     if (self) {
-        NSAssert(images.count > 0, @"You must supply at least one image source to use this class.");
         self.images = images;
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.enableDoneButton = YES;
@@ -81,59 +82,47 @@
     // View setup
     self.view.backgroundColor = self.isUsingTransparentBackground ? [UIColor clearColor] : [UIColor blackColor];
 
-    // Ensure starting index won't trap
-    if (self.startingIndex >= self.images.count || self.startingIndex < 0) {
-        self.startingIndex = 0;
-    }
-    
-    // Setup image view controllers
-    self.imageViewControllers = [NSMutableArray new];
-    for (id imgSrc in self.images) {
-        BFRImageContainerViewController *imgVC = [BFRImageContainerViewController new];
-        imgVC.imgSrc = imgSrc;
-        imgVC.pageIndex = self.startingIndex;
-        imgVC.usedFor3DTouch = self.isBeingUsedFor3DTouch;
-        imgVC.useTransparentBackground = self.isUsingTransparentBackground;
-        imgVC.disableSharingLongPress = self.shouldDisableSharingLongPress;
-        imgVC.disableHorizontalDrag = (self.images.count > 1);
-        [self.imageViewControllers addObject:imgVC];
-    }
-    
-    // Set up pager
-    self.pagerVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    if (self.imageViewControllers.count > 1) {
-        self.pagerVC.dataSource = self;
-    }
-    [self.pagerVC setViewControllers:@[self.imageViewControllers[self.startingIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
-    // Add pager to view hierarchy
-    [self addChildViewController:self.pagerVC];
-    [[self view] addSubview:[self.pagerVC view]];
-    [self.pagerVC didMoveToParentViewController:self];
-    
-    // Attach to pager controller's scrollview for parallax effect when swiping between images
-    for (UIView *subview in self.pagerVC.view.subviews) {
-        if ([subview isKindOfClass:[UIScrollView class]]) {
-            ((UIScrollView *)subview).delegate = self;
-            self.parallaxView.backgroundColor = self.view.backgroundColor;
-            self.parallaxView.hidden = YES;
-            [subview addSubview:self.parallaxView];
-            
-            CGRect parallaxSeparatorFrame = CGRectZero;
-            parallaxSeparatorFrame.size = [self sizeForParallaxView];
-            self.parallaxView.frame = parallaxSeparatorFrame;
-            
-            break;
-        }
-    }
-    
-    // Add chrome to UI now if we aren't waiting to be peeked into
-    if (!self.isBeingUsedFor3DTouch) {
-        [self addChromeToUI];
-    }
-    
-    // Register for touch events on the images/scrollviews to hide UI chrome
-    [self registerNotifcations];
+	if (self.images.count > 0) {
+		[self doSetupDelayed];
+	}else {
+		_progressView = [self createProgressView];
+		[self.view addSubview:_progressView];
+	}
+	
+	// Add chrome to UI now if we aren't waiting to be peeked into
+	if (!self.isBeingUsedFor3DTouch) {
+		[self addChromeToUI];
+	}
+}
+
+
+/**
+ Recieve the actual image content array after init. You can only use this if you sent in an empty list to init. This method may only be called once per object.
+
+ @param array The final data set.
+ */
+-(void)recieveImageSourcesDelayed:(NSMutableArray *_Nonnull)array {
+	NSAssert([array count] > 0, @"Delayed input may not be zero");
+	NSAssert([self.images count] == 0, @"Delayed input may not be used when data has already been sent in");
+	[_progressView removeFromSuperview];
+	self.images = array;
+	[self doSetupDelayed];
+	//Try and bring the close button back to the front because after creating the new views it may be behind
+	[self.view bringSubviewToFront:self.doneButton];
+}
+
+- (DACircularProgressView *)createProgressView {
+	CGFloat screenWidth = self.view.bounds.size.width;
+	CGFloat screenHeight = self.view.bounds.size.height;
+	
+	DACircularProgressView *progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake((screenWidth-35.)/2., (screenHeight-35.)/2, 35.0f, 35.0f)];
+	[progressView setIndeterminate:1];
+	progressView.thicknessRatio = 0.1;
+	progressView.roundedCorners = NO;
+	progressView.trackTintColor = [UIColor colorWithWhite:0.2 alpha:1];
+	progressView.progressTintColor = [UIColor colorWithWhite:1.0 alpha:1];
+	
+	return progressView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -147,6 +136,57 @@
 - (void)viewDidLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self updateChromeFrames];
+}
+
+-(void)doSetupDelayed {
+	// Ensure starting index won't trap
+	if (self.startingIndex >= self.images.count || self.startingIndex < 0) {
+		self.startingIndex = 0;
+	}
+	
+	// Setup image view controllers
+	self.imageViewControllers = [NSMutableArray new];
+	for (id imgSrc in self.images) {
+		BFRImageContainerViewController *imgVC = [BFRImageContainerViewController new];
+		imgVC.imgSrc = imgSrc;
+		imgVC.pageIndex = self.startingIndex;
+		imgVC.usedFor3DTouch = self.isBeingUsedFor3DTouch;
+		imgVC.useTransparentBackground = self.isUsingTransparentBackground;
+		imgVC.disableSharingLongPress = self.shouldDisableSharingLongPress;
+		imgVC.disableHorizontalDrag = (self.images.count > 1);
+		[self.imageViewControllers addObject:imgVC];
+	}
+	
+	// Set up pager
+	self.pagerVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+	if (self.imageViewControllers.count > 1) {
+		self.pagerVC.dataSource = self;
+	}
+	[self.pagerVC setViewControllers:@[self.imageViewControllers[self.startingIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+	
+	// Add pager to view hierarchy
+	[self addChildViewController:self.pagerVC];
+	[[self view] addSubview:[self.pagerVC view]];
+	[self.pagerVC didMoveToParentViewController:self];
+	
+	// Attach to pager controller's scrollview for parallax effect when swiping between images
+	for (UIView *subview in self.pagerVC.view.subviews) {
+		if ([subview isKindOfClass:[UIScrollView class]]) {
+			((UIScrollView *)subview).delegate = self;
+			self.parallaxView.backgroundColor = self.view.backgroundColor;
+			self.parallaxView.hidden = YES;
+			[subview addSubview:self.parallaxView];
+			
+			CGRect parallaxSeparatorFrame = CGRectZero;
+			parallaxSeparatorFrame.size = [self sizeForParallaxView];
+			self.parallaxView.frame = parallaxSeparatorFrame;
+			
+			break;
+		}
+	}
+	
+	// Register for touch events on the images/scrollviews to hide UI chrome
+	[self registerNotifcations];
 }
 
 #pragma mark - Status bar

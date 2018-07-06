@@ -36,4 +36,5 @@
 /*! The button that sticks to the top left of the view that is responsible for dismissing this view controller. */
 @property (strong, nonatomic, nullable) UIButton *doneButton;
 
+-(void)recieveImageSourcesDelayed:(NSMutableArray *_Nonnull)array;
 @end

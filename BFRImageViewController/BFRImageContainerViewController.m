@@ -514,7 +514,8 @@
     
     self.imgView = playerView;
     [self.scrollView addSubview:self.imgView];
-    [self setMaxMinZoomScalesForCurrentBounds];
+	self.scrollView.maximumZoomScale = 1.0;
+	self.scrollView.minimumZoomScale = 1.0;
 }
 
 #pragma mark - Misc. Methods
