@@ -452,7 +452,7 @@
 - (void)retrieveImageFromURL:(NSURL *)src {
     NSURL *url = src;
     //Hack to get mp4s going
-    if ([[[url pathExtension]lowercaseString]isEqualToString:@"mp4"]) {
+    if ([[[url pathExtension]lowercaseString]isEqualToString:@"mp4"] || [[[url pathExtension]lowercaseString]isEqualToString:@"m3u8"] ) {
         [self.progressView removeFromSuperview];
         [self handleVideo:url];
     }else {
