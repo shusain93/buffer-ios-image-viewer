@@ -529,6 +529,7 @@
 	[UIView animateWithDuration:0.25 animations:^{
 		[parent.doneButton setAlpha:targetAlpha];
 		[_photoDescriptorView setAlpha:targetAlpha];
+		[[parent getPageViewControllerPageControl]setAlpha:targetAlpha];
 	}];
 }
 

@@ -13,7 +13,7 @@
 #import "BFRImageViewerConstants.h"
 #import <DACircularProgress/DACircularProgressView.h>
 
-@interface BFRImageViewController () <UIPageViewControllerDataSource, UIScrollViewDelegate>
+@interface BFRImageViewController () <UIPageViewControllerDataSource,UIPageViewControllerDelegate, UIScrollViewDelegate>
 
 /*! This view controller just acts as a container to hold a page view controller, which pages between the view controllers that hold an image. */
 @property (strong, nonatomic, nonnull) UIPageViewController *pagerVC;
@@ -210,6 +210,7 @@
         self.doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.doneButton setAccessibilityLabel:BFRImageViewerLocalizedStrings(@"imageViewController.closeButton.text", @"Close")];
         [self.doneButton setImage:crossImage forState:UIControlStateNormal];
+		[self.doneButton setAccessibilityLabel:@"Close image viewer"];
         [self.doneButton addTarget:self action:@selector(handleDoneAction) forControlEvents:UIControlEventTouchUpInside];
         
         [self.view addSubview:self.doneButton];
@@ -232,6 +233,23 @@
     }
     
     self.parallaxView.hidden = YES;
+}
+
+#pragma mark - Pager delegate
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+	return [self.imageViewControllers count];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+	return 0;
+}
+
+- (UIPageControl *)getPageViewControllerPageControl {
+	for (UIView *v in self.pagerVC.view.subviews) {
+		if ([v isKindOfClass:[UIPageControl class]]) {
+			return v;
+		}
+	}
 }
 
 #pragma mark - Pager Datasource
