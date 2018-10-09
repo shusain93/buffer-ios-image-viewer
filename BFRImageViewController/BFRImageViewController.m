@@ -250,6 +250,8 @@
 			return v;
 		}
 	}
+	//Return nil otherwise whatever the hell is in r0 is returned. For whatever reason Xcode and clang isn't seeing this issue and generating bad asm
+	return nil;
 }
 
 #pragma mark - Pager Datasource
