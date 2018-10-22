@@ -96,6 +96,12 @@
 	}
 }
 
+- (BOOL)accessibilityPerformEscape {
+	[self handleDoneAction];
+	
+	return true;
+}
+
 
 /**
  Recieve the actual image content array after init. You can only use this if you sent in an empty list to init. This method may only be called once per object.
