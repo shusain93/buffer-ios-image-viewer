@@ -80,7 +80,9 @@
     [super viewDidLoad];
     
     // View setup
-    self.view.accessibilityIgnoresInvertColors = true;
+    if (@available(iOS 11.0, *)) {
+	self.view.accessibilityIgnoresInvertColors = true;
+    }
     self.view.backgroundColor = self.isUsingTransparentBackground ? [UIColor clearColor] : [UIColor blackColor];
 
 	if (self.images.count > 0) {
