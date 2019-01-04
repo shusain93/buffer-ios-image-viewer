@@ -244,6 +244,16 @@
     self.parallaxView.hidden = YES;
 }
 
+- (NSArray<UIKeyCommand *>*)keyCommands {
+    return @[
+             [UIKeyCommand keyCommandWithInput:@"l" modifierFlags:0 action:@selector(doneShortcut:) discoverabilityTitle:@"Back"]
+             ];
+}
+
+-(void)doneShortcut:(UIKeyCommand *)sender {
+    [self handleDoneAction];
+}
+
 #pragma mark - Pager delegate
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
 	return [self.imageViewControllers count];
@@ -256,7 +266,7 @@
 - (UIPageControl *)getPageViewControllerPageControl {
 	for (UIView *v in self.pagerVC.view.subviews) {
 		if ([v isKindOfClass:[UIPageControl class]]) {
-			return v;
+			return (UIPageControl*)v;
 		}
 	}
 	//Return nil otherwise whatever the hell is in r0 is returned. For whatever reason Xcode and clang isn't seeing this issue and generating bad asm
